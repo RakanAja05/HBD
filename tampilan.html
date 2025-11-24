@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Pesan Keluarga</title>
+	<link rel="stylesheet" href="tampilan.css" />
+</head>
+<body>
+    <!-- Birthday Section -->
+    <div id="birthdaySection" class="birthday-section active">
+        <div class="birthday-content">
+            <div class="birthday-photo">
+                <img src="images/alesha.jpg" alt="Alesha" class="birthday-img">
+            </div>
+            <div class="birthday-emoji">🎂🎉</div>
+            <h1 class="birthday-title">Selamat Ulang Tahun</h1>
+            <h2 class="birthday-name">Alesha! 🎈</h2>
+            
+            <div class="birthday-message">
+                <p>Cieee Alesha yang ulang tahun hari iniii 🎉🥳</p>
+                <p>Wah pasti seneng senang nian wkkw.</p>
+                <p>Semoga selalu sehat, selalu bahagia, dan makin pinter tiap hari.</p>
+                <p>Semoga semua cita-citanya pelan-pelan makin deket, dan dimudahkan buat masuk pondok dan jadi santri yang sholehah.</p>
+                <p>Tumbuh jadi anak yang kreatif, pede, dan selalu jadi kebanggaan keluarga.</p>
+                <p>Allah jaga dan berkahi tiap langkah Alesha yaaa 🤲</p>
+                <p class="amin">Aamiin Ya Rabbal 'Aalamiin.</p>
+            </div>
+
+            <div class="birthday-wishes">
+                <div class="wish-item">🎨 Makin kreatif & jago bikin hal-hal lucu</div>
+                <div class="wish-item">📚 Belajarnya makin lancar</div>
+                <div class="wish-item">✨ Makin cantik dan tambah pede<br><span style="font-size: 0.85em;">(tapi jangan sombong yaa)</span></div>
+                <div class="wish-item">🌟 Selalu jadi anak kebanggaan</div>
+            </div>
+
+            <button class="continue-btn" id="continueBtn">Lihat Pesan ➜</button>
+        </div>
+    </div>
+
+    <!-- Family Messages Section -->
+    <div id="familySection" class="family-section">
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <h1>✨ Yang ultah bulan ini ✨</h1>
+    <div class="grid" aria-label="Daftar Kotak Pesan">
+        <div class="flip-container" data-person="Rafif">
+            <div class="flipper">
+                <div class="front box-3">
+                    <img src="images/rapip.jpg" alt="Rafif" class="person-img emoji">
+                    <span class="label">Rafif</span>
+                </div>
+                <div class="back box-3">
+                    <p class="message">HBD, maap telat dikit. Kau ngebuat animasinyo telat jugo soalnyo</p>
+                    <button class="back-btn" aria-label="Kembali">↩️ Tutup</button>
+                </div>
+            </div>
+        </div>
+        <div class="flip-container" data-person="Alesha">
+            <div class="flipper">
+                <div class="front box-4">
+                    <img src="images/alesha.jpg" alt="Alesha" class="person-img emoji">
+                    <span class="label">Alesha</span>
+                </div>
+                <div class="back box-4">
+                    <p class="message">Semoga dimudahkan masuk pondok dan jadi santri yang sholehah </p>
+                    <button class="back-btn" aria-label="Kembali">↩️ Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Family Section -->
+
+	<script>
+	(function() {
+		// Birthday to Family transition
+		const continueBtn = document.getElementById('continueBtn');
+		const birthdaySection = document.getElementById('birthdaySection');
+		const familySection = document.getElementById('familySection');
+
+		continueBtn.addEventListener('click', () => {
+			birthdaySection.classList.add('fade-out');
+			setTimeout(() => {
+				birthdaySection.classList.remove('active');
+				familySection.classList.add('active');
+			}, 800);
+		});
+
+		// Flip card functionality
+		const containers = document.querySelectorAll('.flip-container');
+
+		containers.forEach(container => {
+			const front = container.querySelector('.front');
+			const backBtn = container.querySelector('.back-btn');
+
+			// Click front to flip
+			front.addEventListener('click', () => {
+				container.classList.add('flipped');
+			});
+
+			// Click back button to flip back
+			backBtn.addEventListener('click', (e) => {
+				e.stopPropagation();
+				container.classList.remove('flipped');
+			});
+		});
+	})();
+	</script>
+</body>
+</html>
